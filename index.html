@@ -1,515 +1,516 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SITI MALIKHA 2388010001</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
+<title>SITI MALIKHA 2388010001</title>
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 50%;
-            padding: 5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
+    color:#fff;
+    overflow-x:hidden;
+}
 
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+/* SCROLLBAR */
+::-webkit-scrollbar{
+    width:10px;
+}
 
-        .header-text h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
+::-webkit-scrollbar-thumb{
+    background:#7c3aed;
+    border-radius:10px;
+}
 
-        .header-text p {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
+/* HEADER */
+header{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+    position:relative;
+    overflow:hidden;
+}
 
-        nav {
-            background: rgba(0,0,0,0.1);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+header::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(124,58,237,0.2);
+    border-radius:50%;
+    top:-150px;
+    right:-100px;
+    filter:blur(100px);
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+header::after{
+    content:'';
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:rgba(59,130,246,0.2);
+    border-radius:50%;
+    bottom:-150px;
+    left:-100px;
+    filter:blur(100px);
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 5px;
-        }
+.hero{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
-        nav a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
+/* FOTO */
+.profile-image{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    overflow:hidden;
+    border:6px solid rgba(255,255,255,0.2);
+    box-shadow:
+        0 0 25px rgba(124,58,237,0.5),
+        0 0 50px rgba(59,130,246,0.3);
+    animation:float 4s ease-in-out infinite;
+    transition:0.4s;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+.profile-image:hover{
+    transform:scale(1.05);
+}
 
-        section {
-            background: white;
-            margin-bottom: 30px;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+.profile-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-        section h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #764ba2;
-            padding-bottom: 15px;
-        }
+/* TEXT */
+.hero-text{
+    max-width:650px;
+}
 
-        section h3 {
-            color: #764ba2;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
+.hero-text h1{
+    font-size:4rem;
+    line-height:1.2;
+    margin-bottom:15px;
+    font-weight:700;
+}
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-        }
+.hero-text span{
+    color:#c084fc;
+}
 
-        .about-text p {
-            margin-bottom: 15px;
-            text-align: justify;
-            line-height: 1.8;
-        }
+.hero-text p{
+    font-size:1.2rem;
+    color:#d1d5db;
+    margin-bottom:30px;
+}
 
-        .about-image {
-            text-align: center;
-            width: 100%;
-            max-width: 300px;
-            height: 300px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
+.btn{
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#7c3aed,#3b82f6);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(124,58,237,0.3);
+}
 
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+.btn:hover{
+    transform:translateY(-5px);
+}
 
-        .vision-mission {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
+/* NAV */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(15,23,42,0.7);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
 
-        .vision-box, .mission-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+nav ul{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    list-style:none;
+    padding:20px;
+    flex-wrap:wrap;
+}
 
-        .vision-box h3, .mission-box h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    position:relative;
+}
 
-        .values {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#a855f7;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
 
-        .value-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s ease;
-        }
+nav a:hover::after{
+    width:100%;
+}
 
-        .value-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+/* SECTION */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
 
-        .value-item h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
+section{
+    padding:100px 0;
+}
 
-        .programs {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
+.title{
+    font-size:2.8rem;
+    margin-bottom:50px;
+    text-align:center;
+    color:#fff;
+}
 
-        .program-card {
-            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s ease;
-        }
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(20px);
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
 
-        .program-card:hover {
-            box-shadow: 0 4px 15px rgba(102,126,234,0.2);
-            transform: translateX(5px);
-        }
+/* ABOUT */
+.about-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
 
-        .program-card h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
+.about-content img{
+    width:100%;
+    border-radius:25px;
+    object-fit:cover;
+}
 
-        .team {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
+.about-content p{
+    line-height:2;
+    color:#d1d5db;
+}
 
-        .team-member {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
+/* PROGRAM */
+.program-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
 
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+.program-card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:25px;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.08);
+}
 
-        .team-member-photo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2em;
-        }
+.program-card:hover{
+    transform:translateY(-10px);
+    background:rgba(124,58,237,0.15);
+}
 
-        .team-member h4 {
-            color: #667eea;
-            margin-bottom: 5px;
-        }
+.program-card h3{
+    margin-bottom:15px;
+    color:#c084fc;
+}
 
-        .team-member p {
-            color: #666;
-            font-size: 0.9em;
-        }
+/* TEAM */
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
 
-        footer {
-            background: rgba(0,0,0,0.9);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-        }
+.team-card{
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:25px;
+    transition:0.4s;
+}
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.team-card:hover{
+    transform:translateY(-10px);
+}
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 15px 0;
-        }
+.team-photo{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#7c3aed,#3b82f6);
+    margin:auto;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+}
 
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-        }
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px 20px;
+    background:#020617;
+    color:#94a3b8;
+}
 
-        .social-links a:hover {
-            color: #667eea;
-            transform: scale(1.2);
-        }
+/* ANIMATION */
+.hidden{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 1s;
+}
 
-        @media (max-width: 768px) {
-            .about-content,
-            .vision-mission,
-            .programs,
-            .team {
-                grid-template-columns: 1fr;
-            }
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
-            .values {
-                grid-template-columns: 1fr;
-            }
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
 
-            .header-text h1 {
-                font-size: 1.8em;
-            }
+/* RESPONSIVE */
+@media(max-width:768px){
 
-            nav ul {
-                gap: 15px;
-            }
+    .hero-text h1{
+        font-size:2.5rem;
+    }
 
-            .header-content {
-                gap: 15px;
-            }
-        }
+    .about-content{
+        grid-template-columns:1fr;
+    }
 
-        .highlight {
-            color: #667eea;
-            font-weight: 600;
-        }
-    </style>
+    .profile-image{
+        width:200px;
+        height:200px;
+    }
+
+}
+</style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <img src="IMG_6950.JPG" alt="HIMA Informatika Logo CDM">
-            </div>
-            <div class="header-text">
-                <h1>SITI MALIKHA 2388010001</h1>
-                <p>BENDAHARA UMUM HIMAFOR PERIODE 2024-2025</p>
-            </div>
+
+<!-- HERO -->
+<header>
+    <div class="hero">
+
+        <div class="profile-image">
+            <img src="IMG_6950.JPG" alt="">
         </div>
-    </header>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#tentang">Tentang Kami</a></li>
-            <li><a href="#visi-misi">Visi & Misi</a></li>
-            <li><a href="#program">Program Kerja</a></li>
-            <li><a href="#pengurus">Pengurus</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-        </ul>
-    </nav>
+        <div class="hero-text">
+            <h1>SITI <span>MALIKHA</span></h1>
+            <p>
+                Bendahara Umum HIMAFOR Periode 2024-2025
+                yang aktif dalam pengembangan organisasi,
+                kepemimpinan, dan inovasi digital.
+            </p>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Tentang Kami -->
-        <section id="tentang">
-            <h2>Tentang Kami</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        <span class="highlight">HIMA Informatika</span> adalah organisasi mahasiswa yang berfokus pada pengembangan akademik, profesional, dan soft skills mahasiswa Program Studi Informatika. Kami berkomitmen untuk menciptakan ekosistem pembelajaran yang dinamis dan inovatif.
-                    </p>
-                    <p>
-                        Sebagai himpunan mahasiswa yang visioner, kami percaya bahwa kolaborasi, inovasi, dan dedikasi adalah kunci kesuksesan. Kami memfasilitasi mahasiswa untuk mengembangkan potensi maksimal mereka melalui berbagai program kegiatan yang relevan dan bermanfaat.
-                    </p>
-                    <h3>Nilai-Nilai Inti</h3>
-                    <p>
-                        Kami menjunjung tinggi nilai-nilai integritas, profesionalisme, inovasi, dan kolaborasi dalam setiap langkah kami. Dengan semangat kebersamaan, kami terus berkembang dan memberikan kontribusi positif bagi universitas dan masyarakat luas.
-                    </p>
-                </div>
-                <div class="about-image">
-                    <img src="CDM-logo.jpg" alt="HIMA Informatika CDM" style="max-width: 300px;">
-                </div>
-            </div>
-        </section>
+            <a href="#tentang" class="btn">Explore More</a>
+        </div>
 
-        <!-- Visi & Misi -->
-        <section id="visi-misi">
-            <h2>Visi & Misi</h2>
-            <div class="vision-mission">
-                <div class="vision-box">
-                    <h3>🎯 Visi</h3>
-                    <p>
-                        Menjadi organisasi mahasiswa informatika terdepan yang menghasilkan lulusan berkompeten, berkarakter, dan siap bersaing di era digital dengan tetap menjunjung tinggi nilai-nilai moral dan etika profesional.
-                    </p>
-                </div>
-                <div class="mission-box">
-                    <h3>🎪 Misi</h3>
-                    <ul style="margin-left: 20px; line-height: 2;">
-                        <li>Meningkatkan kompetensi akademik mahasiswa informatika</li>
-                        <li>Mengembangkan soft skills dan kepemimpinan</li>
-                        <li>Membangun jaringan profesional dengan industri</li>
-                        <li>Mendorong inovasi dan penelitian</li>
-                        <li>Menciptakan lingkungan belajar yang inklusif</li>
-                    </ul>
-                </div>
-            </div>
+    </div>
+</header>
 
-            <h3 style="margin-top: 40px; color: #667eea;">Nilai-Nilai Kami</h3>
-            <div class="values">
-                <div class="value-item">
-                    <h4>💡 Inovasi</h4>
-                    <p>Kami mendorong kreativitas dan pemikiran out-of-the-box dalam setiap solusi yang kami tawarkan.</p>
-                </div>
-                <div class="value-item">
-                    <h4>🤝 Kolaborasi</h4>
-                    <p>Bersama-sama kita lebih kuat. Kolaborasi adalah fondasi kesuksesan bersama.</p>
-                </div>
-                <div class="value-item">
-                    <h4>🎓 Pengembangan</h4>
-                    <p>Kami berkomitmen untuk pengembangan berkelanjutan diri setiap anggota organisasi.</p>
-                </div>
-            </div>
-        </section>
+<!-- NAVBAR -->
+<nav>
+    <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#pengurus">Pengurus</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+    </ul>
+</nav>
 
-        <!-- Program Kerja -->
-        <section id="program">
-            <h2>Program Kerja & Kegiatan</h2>
-            <div class="programs">
-                <div class="program-card">
-                    <h4>📚 Pengembangan Akademik</h4>
-                    <p>Workshop, seminar, dan diskusi ilmiah tentang teknologi terkini dan topik-topik relevan di bidang informatika.</p>
-                </div>
-                <div class="program-card">
-                    <h4>💼 Pengembangan Karir</h4>
-                    <p>Career talk, job fair, dan mentoring dari profesional industri untuk persiapan karir mahasiswa.</p>
-                </div>
-                <div class="program-card">
-                    <h4>🏆 Kompetisi & Lomba</h4>
-                    <p>Mengadakan dan mengikuti berbagai kompetisi akademik, programming, dan inovasi teknologi.</p>
-                </div>
-                <div class="program-card">
-                    <h4>🌐 Pengembangan Soft Skills</h4>
-                    <p>Pelatihan kepemimpinan, komunikasi, dan manajemen proyek untuk membentuk pemimpin masa depan.</p>
-                </div>
-                <div class="program-card">
-                    <h4>🤖 Riset & Inovasi</h4>
-                    <p>Mendukung mahasiswa dalam melakukan penelitian dan mengembangkan inovasi teknologi.</p>
-                </div>
-                <div class="program-card">
-                    <h4>👥 Jaringan & Kemitraan</h4>
-                    <p>Membangun hubungan dengan perusahaan, instansi, dan organisasi untuk peluang kolaborasi.</p>
-                </div>
-            </div>
-        </section>
+<div class="container">
 
-        <!-- Pengurus -->
-        <section id="pengurus">
-            <h2>Tim Pengurus Kami</h2>
-            <div class="team">
-                <div class="team-member">
-                    <div class="team-member-photo">👨‍💼</div>
-                    <h4>Ketua Umum</h4>
-                    <p>Memimpin organisasi dengan visi yang jelas</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo">👩‍💼</div>
-                    <h4>Wakil Ketua</h4>
-                    <p>Mendukung program-program strategis</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo">📋</div>
-                    <h4>Sekretaris</h4>
-                    <p>Mengelola administrasi dan dokumentasi</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo">💰</div>
-                    <h4>Bendahara</h4>
-                    <p>Mengelola keuangan organisasi</p>
-                </div>
-            </div>
-        </section>
+<!-- ABOUT -->
+<section id="tentang" class="hidden">
+    <h2 class="title">Tentang Kami</h2>
 
-        <!-- Kontak -->
-        <section id="kontak">
-            <h2>Hubungi Kami</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                <div>
-                    <h3>Informasi Kontak</h3>
-                    <p><strong>Email:</strong> <span class="highlight">hima.informatika@universitas.ac.id</span></p>
-                    <p><strong>Telepon:</strong> <span class="highlight">+62 (0)21-XXXX-XXXX</span></p>
-                    <p><strong>Lokasi:</strong> Gedung Departemen Informatika, Kampus Universitas</p>
-                    <p><strong>Jam Operasional:</strong> Senin-Jumat, 08:00 - 16:00 WIB</p>
-                </div>
-                <div>
-                    <h3>Media Sosial</h3>
-                    <div class="social-links">
-                        <a href="https://instagram.com" target="_blank">📱 Instagram</a>
-                        <a href="https://facebook.com" target="_blank">👍 Facebook</a>
-                        <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
-                        <a href="https://linkedin.com" target="_blank">💼 LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="card about-content">
+
+        <div>
+            <p>
+                HIMA Informatika merupakan organisasi mahasiswa
+                yang berfokus pada pengembangan akademik,
+                profesionalisme, dan soft skills mahasiswa.
+            </p>
+
+            <br>
+
+            <p>
+                Dengan semangat inovasi dan kolaborasi,
+                HIMAFOR hadir untuk menciptakan lingkungan
+                belajar yang aktif, modern, dan inspiratif.
+            </p>
+        </div>
+
+        <div>
+            <img src="CDM-logo.jpg">
+        </div>
+
+    </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program" class="hidden">
+
+    <h2 class="title">Program Kerja</h2>
+
+    <div class="program-grid">
+
+        <div class="program-card">
+            <h3>📚 Workshop</h3>
+            <p>Pelatihan teknologi dan skill digital.</p>
+        </div>
+
+        <div class="program-card">
+            <h3>🏆 Kompetisi</h3>
+            <p>Mendukung mahasiswa dalam lomba dan inovasi.</p>
+        </div>
+
+        <div class="program-card">
+            <h3>💼 Career Talk</h3>
+            <p>Persiapan dunia kerja dan networking industri.</p>
+        </div>
+
+        <div class="program-card">
+            <h3>🤝 Leadership</h3>
+            <p>Membangun jiwa kepemimpinan mahasiswa.</p>
+        </div>
+
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 HIMA Informatika - Himpunan Mahasiswa Informatika Visioner</p>
-            <p>Bersama Membangun Masa Depan Digital</p>
+</section>
+
+<!-- TEAM -->
+<section id="pengurus" class="hidden">
+
+    <h2 class="title">Pengurus Inti</h2>
+
+    <div class="team-grid">
+
+        <div class="team-card">
+            <div class="team-photo">👨‍💼</div>
+            <h3>Ketua</h3>
+            <p>Pemimpin organisasi</p>
         </div>
-    </footer>
+
+        <div class="team-card">
+            <div class="team-photo">👩‍💼</div>
+            <h3>Wakil Ketua</h3>
+            <p>Mendukung program kerja</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-photo">📋</div>
+            <h3>Sekretaris</h3>
+            <p>Mengelola administrasi</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-photo">💰</div>
+            <h3>Bendahara</h3>
+            <p>Mengelola keuangan</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="hidden">
+
+    <h2 class="title">Kontak</h2>
+
+    <div class="card" style="text-align:center;">
+
+        <p>Email : hima.informatika@gmail.com</p>
+        <br>
+        <p>Instagram : @himafor</p>
+        <br>
+        <p>Universitas Catur Insan Cendekia</p>
+
+    </div>
+
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 HIMAFOR Informatika</p>
+</footer>
+
+<!-- ANIMASI SCROLL -->
+<script>
+
+const hiddenElements = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+
+    });
+});
+
+hiddenElements.forEach((el) => observer.observe(el));
+
+</script>
+
 </body>
 </html>
