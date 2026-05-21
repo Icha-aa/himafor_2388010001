@@ -28,36 +28,37 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-deploy-web-dinamis
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Dploy to EC2 via SSH and run docker compose
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.AWS_HOST }}
-        username: ${{ secrets.AWS_USERNAME }}
-        key: ${{ secrets.AWS_PRIVATE_KEY }}
-        port: 22
-        script: |
-          docker rm -f /home/ubuntu/container-dinamis/database
-          docker rm -f /home/ubuntu/container-dinamis/web-dinamis
-    - name: Copy Compose file EC2 via SCP
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.AWS_HOST }}
-        username: ${{ secrets.AWS_USERNAME }}
-        key: ${{ secrets.AWS_PRIVATE_KEY }}
-        port: 22
-        source: "./web-dinamis/docker-compose.yml, web-dinamis/db_data/dbcompro_2388010001.sql"
-        target: "/home/ubuntu/container-dinamis"
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Copy Compose file EC2 via SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          port: 22
+          script: |
+            docker rm -f /home/ubuntu/container-dinamis/database
+            docker rm -f /home/ubuntu/container-dinamis/web-dinamis
+      - name: SSH and run docker compose
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          port: 22
+          source: "./web-dinamis/docker-compose.yml,web-dinamis/.env"
+          target: "/home/ubuntu/container-dinamis/"
+          stript_components: 1
 
-    - name: SSH and run docker compose
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.AWS_HOST }}
-        username: ${{ secrets.AWS_USERNAME }}
-        key: ${{ secrets.AWS_PRIVATE_KEY }}
-        port: 22
-        script: |
-          cd /home/ubuntu/container-dinamis
-          docker compose pull
-          docker compose up -d
+      - name: Deploy Web Dinamis via SSH and run docker compose
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/container-dinamis
+            docker-compose pull
+            docker-compose up -d
