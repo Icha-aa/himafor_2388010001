@@ -1,39 +1,39 @@
 # 1. Builder
-
 FROM node:18-alpine AS builder
 
-# Set Directory
 WORKDIR /app
 
-# Copy Package.json and Package-lock.json
-COPY package*.json .
+# Copy package files dulu (manfaatkan Docker layer cache)
+COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy source code
+# Copy sisa source code aplikasi
 COPY . .
 
 # Build next.js
 RUN npm run build
 
-# 2. Runner
 
+# 2. Runner
 FROM node:18-alpine AS runner
 
-# Set Directory
 WORKDIR /app
 
-# Environment variables for next.js
 ENV NODE_ENV=production
 
-# Copy built files from builder
-COPY --from=builder /app/.next/standalone ./.next/standalone
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/.public ./.public
+# Pastikan portnya terbaca oleh Next.js standalone
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
-# Expose port
+# Copy hasil build standalone (isinya sudah termasuk server.js dan node_modules)
+COPY --from=builder /app/.next/standalone ./
+
+# Copy static files dan public assets ke folder .next yang baru
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+
 EXPOSE 3000
 
-# Start next.js
-CMD ["node", ".next/standalone/server.js"]
+# Karena standalone dicopy langsung ke root (/app), panggil server.js secara langsung
+CMD ["node", "server.js"]
