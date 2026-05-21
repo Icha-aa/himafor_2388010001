@@ -1,0 +1,38 @@
+# Layanan Database
+
+services:
+  db:
+    image: mariadb:lts
+    environment:
+      MYSQL_ROOT_PASSWORD: icha123
+      MYSQL_DATABASE: dbcompro_2388010001
+      MYSQL_USER: userwebdinamis_238880001
+      MYSQL_PASSWORD: uKrkK2g-YI-RCPe-
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db_data:/dbcompro_2388010001.sql:/docker-entrypoint-initdb.d/dbcompro_2388010001.sql
+    restart: always
+
+
+  container-statis:
+    image: ${DOCKERHUB_USERNAME}/himafor_2388010001:latest
+    ports:
+      - "80:80"
+    restart: always
+
+  container-dinamis:
+    image: ${DOCKERHUB_USERNAME}/web-dinamis:latest
+    ports:
+      - "3000:3000"
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: userwebdinamis_238880001
+      DB_PASSWORD: uKrkK2g-YI-RCPe-
+      DB_NAME: dbcompro_2388010001
+    depends_on:
+      - db
+
+volumes:
+  db_data: {}
