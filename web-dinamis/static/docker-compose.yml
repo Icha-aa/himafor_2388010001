@@ -12,7 +12,7 @@ services:
       - db_data:/var/lib/mysql
       - ./db_data:/dbcompro_2388010001.sql:/docker-entrypoint-initdb.d/dbcompro_2388010001.sql
     restart: always
-    
+
   container-statis:
     image: sitimalikha19/himafor_2388010001:latest
     ports:
@@ -30,6 +30,8 @@ services:
       DB_USER: userwebdinamis_238880001
       DB_PASSWORD: uKrkK2g-YI-RCPe-
       DB_NAME: dbcompro_2388010001
+      NEXTAUTH_SECRET: your_nextauth_secret
+      NEXTAUTH_URL: http://3.236.228.154
     depends_on:
       - db
 
